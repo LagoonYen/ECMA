@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const memberA = {
+            name: "Yen",
+            age: 28,
+            gender: "Male",
+        }
+        //解構memberA資訊
+        const { name, age, gender } = memberA;
+        console.log(name, age, gender);
+
+        //B繼承A 新增資料
+        const memberB = { ...memberA, height: 163.5 }
+        console.log(memberB)
+        //
+        const p1 = {
+            name: "Chert",
+            age: 15,
+            gender: "Female",
+        }
+        console.log('p1原本 : ', p1);
+        const p2 = p1;
+        const p3 = { ...p1 }; ///dupliacate 淺層 cope
+
+        p1.name = "Sama";
+        console.log('p1後來 : ', p1);
+        console.log('p2指到p1 : ', p2);
+        console.log('p3複製成p1 ', p3);
+
+        //深層拷貝
+        const memberC = {
+            name: "Yen",
+            age: 28,
+            gender: "Male",
+        }
+        const memberD = JSON.parse(JSON.stringify(memberC))
+        console.log(memberC);
+        console.log(memberD);
+
+
+
+        //循環
+        const a1 = {
+            name: "Yen",
+            age: 13,
+        };
+        const a2 = {
+            name: "Yi",
+            age: 14,
+        };
+        const a3 = {
+            name: "Yo",
+            age: 14,
+        };
+        a1.next = a2;
+        a2.next = a3;
+        a3.next = a1;
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

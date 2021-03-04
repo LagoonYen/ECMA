@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xxx = 2;
+        console.log('xxx:', xxx);
+        console.log('window.xxx', window.xxx);
+
+        let bbb = 5;
+        console.log('bbb:', bbb);
+        console.log('window.bbb', window.bbb);
+
+        //設Timeout
+
+        for (var x = 0; x < 5; x++) {
+            setTimeout(function () {
+                console.log(x);
+            }, 500 * x)
+        };
+
+        for (let x = 0; x < 5; x++) {
+            setTimeout(function () {
+                console.log(x);
+            }, 500 * x)
+        };
+
+        //
+        let a = 13;
+
+        if (a >= 18) {
+            let m = 'OK'
+        }
+        else {
+            let m = 'error'
+        }
+        //let m 死亡
+
+        let b = 13;
+        let s;
+        if (b >= 18) {
+            s = 'OK'
+            console.log(s)
+        }
+        else {
+            s = 'error'
+            console.log(s)
+        }
+        //let s 存在
+
+    </script>
+</body>
+
+</html>

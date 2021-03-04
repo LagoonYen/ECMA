@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const myTarget = {
+            name: 'Lagoon',
+            age: 28,
+            agechange: function () {
+                this.age++
+            }
+        }
+
+        const myHandler = {
+            get: function (target, prop) {
+                console.log('get', target, prop)
+                return target[prop]
+            },
+            set: function (target, prop, value) {
+                console.log('set', target, prop, value)
+                //條件判斷
+                if (prop === 'age' && isNaN(value / 1)) {
+                    throw new Error('number only');
+                } else {
+                    target[prop] = value;
+                }
+
+
+                target[prop] = value;
+            },
+        }
+
+        const proxy = new Proxy(myTarget, myHandler);
+        console.log(proxy.age);
+
+        //數字可判定
+        proxy.age = 66;
+        console.log(myTarget);
+        //數字的字串型態可判定
+        proxy.age = '88';
+        console.log(myTarget);
+        //文字出錯
+        proxy.age = "aaa";
+        console.log(myTarget);
+
+
+    </script>
+
+
+</body>
+
+</html>
